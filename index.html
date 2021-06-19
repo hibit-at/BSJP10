@@ -1,0 +1,44 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <meta charset="utf-8" />
+    <title>Jp10History</title>
+</head>
+<h1>Beat Saber JP Top10 History</h1>
+ <table border="1" width=100 height=100>
+    <tr>
+    <thead class="table-dark" style = "text-align:center;">
+    <th witdh=200>date</th>
+    <th>#1</th>
+    <th>#2</th>
+    <th>#3</th>
+    <th>#4</th>
+    <th>#5</th>
+    <th>#6</th>
+    <th>#7</th>
+    <th>#8</th>
+    <th>#9</th>
+    <th>#10</th>
+    </thead>
+    </tr>
+    {% for d in data %}
+    <tr>
+    <td>{{d.date}}</td>
+    <td><img src = '/static/{{d.n0}}.jpg' width=100 height =100></td>
+    <td><img src = '/static/{{d.n1}}.jpg' width=100 height =100></td>
+    <td><img src = '/static/{{d.n2}}.jpg' width=100 height =100></td>
+    <td><img src = '/static/{{d.n3}}.jpg' width=100 height =100></td>
+    <td><img src = '/static/{{d.n4}}.jpg' width=100 height =100></td>
+    <td><img src = '/static/{{d.n5}}.jpg' width=100 height =100></td>
+    <td><img src = '/static/{{d.n6}}.jpg' width=100 height =100></td>
+    <td><img src = '/static/{{d.n7}}.jpg' width=100 height =100></td>
+    <td><img src = '/static/{{d.n8}}.jpg' width=100 height =100></td>
+    <td><img src = '/static/{{d.n9}}.jpg' width=100 height =100></td>
+    </tr>
+    {% endfor %}
+</table>
