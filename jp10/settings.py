@@ -20,9 +20,10 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'cmiveaq2$3%9_!ob$hxh+x_rqrh-p0aa_##xptve_asml*-u)7'
 
 import os
+
+SECRET_KEY = os.environ('SK')
 
 import dj_database_url
 
