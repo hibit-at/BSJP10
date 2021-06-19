@@ -23,8 +23,6 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 import os
 
-SECRET_KEY = os.environ('SK')
-
 import dj_database_url
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -37,6 +35,8 @@ if os.path.exists('local.py'):
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
+    from local import SK
+    SECRET_KEY = SK
 else:
     DEBUG = False
     ALLOWED_HOSTS = ['*']
@@ -44,6 +44,7 @@ else:
     DATABASES = {
         'default': dj_database_url.config()
     }
+    SECRET_KEY = os.environ['SK']
 
 
 # Application definition
