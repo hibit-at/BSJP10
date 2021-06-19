@@ -6,7 +6,6 @@ from datetime import datetime, timedelta
 
 import django
 import requests
-from requests_oauthlib import OAuth1Session
 
 sys.path.append('jp10')
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'jp10.settings')
