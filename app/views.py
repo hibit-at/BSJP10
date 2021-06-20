@@ -7,7 +7,7 @@ from app.models import Ranking
 def index(request):
     data = Ranking.objects.order_by('date').reverse().all()
     for d in data:
-        d.date = f'{d.date.day}'
+        d.date = f'{d.date.month}-{d.date.day}'
         d.n0 = d.n0 + '.jpg'
         d.n1 = d.n1 + '.jpg'
         d.n2 = d.n2 + '.jpg'
