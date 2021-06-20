@@ -27,7 +27,7 @@
     </tr>
     {% for d in data %}
     <tr>
-    <td style = "text-align:center;background:#ffffff;color:#0000aa">{{d.date}}</td>
+    <td style = "text-align:center;background:#ffffff;color:#0000aa">{{d.month}}-{{d.date}}</td>
     <td><img src = "{% static d.n0 %}" width=100 height=100></td>
     <td><img src = "{% static d.n1 %}" width=100 height=100></td>
     <td><img src = "{% static d.n2 %}" width=100 height=100></td>
