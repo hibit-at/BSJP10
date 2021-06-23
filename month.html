@@ -9,20 +9,7 @@
     <meta charset="utf-8" />
     <title>Jp10History</title>
 </head>
-<div style="display:flex;">
-<section style="width:35em";>
 <h1>Beat Saber <img src = "{% static 'jp.png' %}" width=45 height=50> Top10 History</h1>
-</section>
-<section style="margin-top:1em;font-weight:bold;">
-    <p>display :
-    <a href='/?q=day'> Daily </a>
-    /
-    <a href='/?q=week'> Weekly </a>
-    /
-    <a href='/?q=month'> Monthly </a>
-    </p>
-</section>
-</div>
     {% for y in year_by %}
     <h1 style='background-color:#0000aa;color:#ffffff;padding-left:1em'>{{y.year}}年</h1>
     {% for m in y.data%}
