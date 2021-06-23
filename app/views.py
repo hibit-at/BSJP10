@@ -1,22 +1,24 @@
+from django.db.models.query import QuerySet
 from django.shortcuts import render
 
 from app.models import Ranking
 
 # Create your views here.
 
+
 def index(request):
-    data = Ranking.objects.order_by('date').reverse().all()
-    for d in data:
-        d.date = f'{d.date.month}-{d.date.day}'
-        d.n0 = d.n0 + '.jpg'
-        d.n1 = d.n1 + '.jpg'
-        d.n2 = d.n2 + '.jpg'
-        d.n3 = d.n3 + '.jpg'
-        d.n4 = d.n4 + '.jpg'
-        d.n5 = d.n5 + '.jpg'
-        d.n6 = d.n6 + '.jpg'
-        d.n7 = d.n7 + '.jpg'
-        d.n8 = d.n8 + '.jpg'
-        d.n9 = d.n9 + '.jpg'
-    params = {'data' : data}
+    years = [str(i) for i in range(2020,2022)]
+    years.reverse()
+    months = [str(i).zfill(2) for i in range(1,13)]
+    months.reverse()
+    year_by_list = []
+    for y in years:
+        month_by_list = []
+        for m in months:
+            data = Ranking.objects.filter(date__year=y).filter(date__month=m).order_by('date').reverse()
+            if len(data) == 0:
+                continue
+            month_by_list.append({'month' : int(m) , 'data' : data})
+        year_by_list.append({'year' : y, 'data' : month_by_list})
+    params = {'year_by' : year_by_list}
     return render(request, 'index.html', params)
