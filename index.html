@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <title>Jp10History</title>
 <div style="display:flex;position:fixed;background-color:#0000aa;color:#fff;">
-<section style="width:35em";>
+<section style="width:40em;padding-left:2em;">
 <h1>Beat Saber <img src = "{% static 'jp.png' %}" width=45 height=50> Top10 History</h1>
 </section>
 <section style="margin-top:.5em;font-weight:bold;font-size:x-large;width:100em;">
@@ -86,16 +86,16 @@
     <td style = "text-align:center;background:#ffffff;color:#0000aa;font-weight:bold;">
     <a href="/?q=week#{{y.year}}-{{m.month}}">{{m.month}}</a>
     </td>
-    <td><img src = "{% static d.n0|add:'.jpg' %}" width=100 height=100></td>
-    <td><img src = "{% static d.n1|add:'.jpg' %}" width=100 height=100></td>
-    <td><img src = "{% static d.n2|add:'.jpg' %}" width=100 height=100></td>
-    <td><img src = "{% static d.n3|add:'.jpg' %}" width=100 height=100></td>
-    <td><img src = "{% static d.n4|add:'.jpg' %}" width=100 height=100></td>
-    <td><img src = "{% static d.n5|add:'.jpg' %}" width=100 height=100></td>
-    <td><img src = "{% static d.n6|add:'.jpg' %}" width=100 height=100></td>
-    <td><img src = "{% static d.n7|add:'.jpg' %}" width=100 height=100></td>
-    <td><img src = "{% static d.n8|add:'.jpg' %}" width=100 height=100></td>
-    <td><img src = "{% static d.n9|add:'.jpg' %}" width=100 height=100></td>
+    <td><a href="https://scoresaber.com/u/{{d.n0}}" target="blank"><img src = "{% static d.n0|add:'.jpg' %}" width=100 height=100></a></td>
+    <td><a href="https://scoresaber.com/u/{{d.n1}}" target="blank"><img src = "{% static d.n1|add:'.jpg' %}" width=100 height=100></a></td>
+    <td><a href="https://scoresaber.com/u/{{d.n2}}" target="blank"><img src = "{% static d.n2|add:'.jpg' %}" width=100 height=100></a></td>
+    <td><a href="https://scoresaber.com/u/{{d.n3}}" target="blank"><img src = "{% static d.n3|add:'.jpg' %}" width=100 height=100></a></td>
+    <td><a href="https://scoresaber.com/u/{{d.n4}}" target="blank"><img src = "{% static d.n4|add:'.jpg' %}" width=100 height=100></a></td>
+    <td><a href="https://scoresaber.com/u/{{d.n5}}" target="blank"><img src = "{% static d.n5|add:'.jpg' %}" width=100 height=100></a></td>
+    <td><a href="https://scoresaber.com/u/{{d.n6}}" target="blank"><img src = "{% static d.n6|add:'.jpg' %}" width=100 height=100></a></td>
+    <td><a href="https://scoresaber.com/u/{{d.n7}}" target="blank"><img src = "{% static d.n7|add:'.jpg' %}" width=100 height=100></a></td>
+    <td><a href="https://scoresaber.com/u/{{d.n8}}" target="blank"><img src = "{% static d.n8|add:'.jpg' %}" width=100 height=100></a></td>
+    <td><a href="https://scoresaber.com/u/{{d.n9}}" target="blank"><img src = "{% static d.n9|add:'.jpg' %}" width=100 height=100></a></td>
     </tr>
     {% endfor %}
     {% endfor %}
