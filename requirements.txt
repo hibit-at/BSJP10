@@ -2,3 +2,4 @@ django-heroku
 gunicorn
 whitenoise
 requests
+requests_oauthlib
