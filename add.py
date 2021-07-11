@@ -86,23 +86,22 @@ if txt != '':
     print(tweet_content)
     params = {"status" : tweet_content}
     res = twitter.post(url, params = params) #post送信
-    print('posted?')
 
 from datetime import datetime
 
 now = datetime.now()
 
-# Ranking.objects.create(
-#     date=now,
-#     n0 = ssids[0],
-#     n1 = ssids[1],
-#     n2 = ssids[2],
-#     n3 = ssids[3],
-#     n4 = ssids[4],
-#     n5 = ssids[5],
-#     n6 = ssids[6],
-#     n7 = ssids[7],
-#     n8 = ssids[8],
-#     n9 = ssids[9],
-# )
+Ranking.objects.create(
+    date=now,
+    n0 = ssids[0],
+    n1 = ssids[1],
+    n2 = ssids[2],
+    n3 = ssids[3],
+    n4 = ssids[4],
+    n5 = ssids[5],
+    n6 = ssids[6],
+    n7 = ssids[7],
+    n8 = ssids[8],
+    n9 = ssids[9],
+)
 
