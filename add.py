@@ -22,23 +22,16 @@ django.setup()
 
 twitter = OAuth1Session(CK, CS, AT, ATS) #認証処理
 
-url = 'https://scoresaber.com/global/1&country=jp'
+url = 'https://scoresaber.com/api/players/?countries=jp'
 
-get = requests.get(url)
-txt = get.text.replace('\n', '').replace('\t', '')
+res = requests.get(url).json()
 
 from app.models import Ranking
 
-pattern = r'<span class="songTop pp" style="font-weight: 700">(.*?)</span>'
-names = re.findall(pattern, txt)
-# print(names)
-pattern = r'<td class="player">                                       <a href="/u/(.*?)">'
-ssids = re.findall(pattern, txt)
-print(names)
-print(ssids)
-# print(ssids)
-
+# print(res)
 ans = []
+ssids = [r['id'] for r in res]
+print(ssids)
 
 past_ssids = Ranking.objects.order_by('date').reverse()[0]
 print(past_ssids)
@@ -54,18 +47,14 @@ p8 = past_ssids.n8
 p9 = past_ssids.n9
 
 past = [p0,p1,p2,p3,p4,p5,p6,p7,p8,p9]
-print(past)
 
 txt = ''
 
 def get_name(id_num):
-    url = f'https://scoresaber.com/u/{id_num}'
-    get = requests.get(url)
-    txt = get.text
-    pattern = '<title>(.*?)\'s profile'
-    result = re.findall(pattern,txt)
+    url = f'https://scoresaber.com/api/player/{id_num}/basic'
+    res = requests.get(url).json()
     try:
-        return result[0]
+        return res['name']
     except:
         return '！名前取得エラー！'
 
