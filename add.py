@@ -29,11 +29,13 @@ txt = get.text.replace('\n', '').replace('\t', '')
 
 from app.models import Ranking
 
-pattern = r'<span class="songTop pp" style="font-weight: 700;">(.*?)</span>'
+pattern = r'<span class="songTop pp" style="font-weight: 700">(.*?)</span>'
 names = re.findall(pattern, txt)
 # print(names)
-pattern = r'<td class="player"><a href="/u/(.*?)">'
+pattern = r'<td class="player">                                       <a href="/u/(.*?)">'
 ssids = re.findall(pattern, txt)
+print(names)
+print(ssids)
 # print(ssids)
 
 ans = []
@@ -52,6 +54,7 @@ p8 = past_ssids.n8
 p9 = past_ssids.n9
 
 past = [p0,p1,p2,p3,p4,p5,p6,p7,p8,p9]
+print(past)
 
 txt = ''
 
@@ -85,23 +88,23 @@ if txt != '':
     url = "https://api.twitter.com/1.1/statuses/update.json" #ツイートポストエンドポイント
     print(tweet_content)
     params = {"status" : tweet_content}
-    res = twitter.post(url, params = params) #post送信
+    # res = twitter.post(url, params = params) #post送信
 
 from datetime import datetime
 
 now = datetime.now()
 
-Ranking.objects.create(
-    date=now,
-    n0 = ssids[0],
-    n1 = ssids[1],
-    n2 = ssids[2],
-    n3 = ssids[3],
-    n4 = ssids[4],
-    n5 = ssids[5],
-    n6 = ssids[6],
-    n7 = ssids[7],
-    n8 = ssids[8],
-    n9 = ssids[9],
-)
+# Ranking.objects.create(
+#     date=now,
+#     n0 = ssids[0],
+#     n1 = ssids[1],
+#     n2 = ssids[2],
+#     n3 = ssids[3],
+#     n4 = ssids[4],
+#     n5 = ssids[5],
+#     n6 = ssids[6],
+#     n7 = ssids[7],
+#     n8 = ssids[8],
+#     n9 = ssids[9],
+# )
 
