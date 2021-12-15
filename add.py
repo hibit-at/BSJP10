@@ -30,7 +30,7 @@ from app.models import Ranking
 
 # print(res)
 ans = []
-ssids = [r['id'] for r in res]
+ssids = [r['id'] for r in res['players']]
 print(ssids)
 
 past_ssids = Ranking.objects.order_by('date').reverse()[0]
