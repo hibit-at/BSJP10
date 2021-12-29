@@ -34,7 +34,10 @@
 <p>
 #{{forloop.counter}}
 <img src="{{pc.profilePicture}}" style="border-radius:20px;width:100px;height:100px">
-{{pc.name}} (<span style="color:blue;font-size:30px">{{pc.playcount|intcomma}}</span> PlayCount)<br>
+<a href="https://scoresaber.com/u/{{pc.sid}}">
+{{pc.name}}
+</a>
+ (<span style="color:blue;font-size:30px">{{pc.playcount|intcomma}}</span> PlayCount)<br>
 </p>
 {% endfor %}
 </main>
