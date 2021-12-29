@@ -14,3 +14,9 @@ class Ranking(models.Model):
     n7 = models.CharField(default='', max_length=50)
     n8 = models.CharField(default='', max_length=50)
     n9 = models.CharField(default='', max_length=50)
+
+class PCRanking(models.Model):
+    sid = models.CharField(default='', max_length=50)
+    name = models.CharField(default='',max_length=50)
+    playcount = models.IntegerField(default=0)
+    profilePicture = models.CharField(default='', max_length=100)

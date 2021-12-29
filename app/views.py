@@ -2,7 +2,7 @@ from itertools import chain
 
 from django.shortcuts import render
 
-from app.models import Ranking
+from app.models import Ranking,PCRanking
 
 # Create your views here.
 
@@ -37,3 +37,9 @@ def index(request):
         year_by_list.append({'year' : y, 'data' : month_by_list})
     params = {'year_by' : year_by_list, 'freq' : freq}
     return render(request, 'index.html', params)
+
+def playcount(request):
+    pcs = PCRanking.objects.order_by('-playcount')[:50]
+    params = {}
+    params['pcs'] = pcs
+    return render(request, 'playcount.html', params)

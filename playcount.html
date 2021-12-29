@@ -1,0 +1,41 @@
+
+{% load static %}
+{% load humanize %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <meta charset="utf-8" />
+    <title>Jp10History</title>
+    
+</head>
+<div style="display:flex;position:fixed;background-color:#00a;color:#fff;width:100%;">
+<section style="width:40em;padding-left:2em;">
+<h1>Beat Saber <img src = "{% static 'jp.png' %}" width=45 height=50> Top10 History</h1>
+</section>
+<section style="margin-top:.5em;font-weight:bold;font-size:x-large;">
+<p>
+{% if freq == 'day'%}Daily{% else %}<a href='/?q=day' disabled>Daily</a>{% endif %}
+    /
+{% if freq == 'week'%}Weekly{% else %}<a href='/?q=week' disabled>Weekly</a>{% endif %}
+    /
+{% if freq == 'month'%}Monthly{% else %}<a href='/?q=month' disabled>Monthly</a>{% endif %}
+</p>
+</section><section style="margin-top:.5em;margin-left:60px;font-weight:bold;font-size:x-large;">
+<p>
+    PlayCount
+</p>
+</div>
+<main style="padding-top:4em;">
+<div style="padding:50px;font-weight:bold;font-size:large">
+{% for pc in pcs %}
+<p>
+#{{forloop.counter}}
+<img src="{{pc.profilePicture}}" style="border-radius:20px;width:100px;height:100px">
+{{pc.name}} (<span style="color:blue;font-size:30px">{{pc.playcount|intcomma}}</span> PlayCount)<br>
+</p>
+{% endfor %}
+</main>
+</div>

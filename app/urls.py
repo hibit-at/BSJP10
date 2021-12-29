@@ -7,4 +7,5 @@ app_name = 'app'
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('playcount',views.playcount, name='playcount'),
 ]

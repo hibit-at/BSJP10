@@ -22,7 +22,10 @@
     /
 {% if freq == 'month'%}Monthly{% else %}<a href='/?q=month' disabled>Monthly</a>{% endif %}
 </p>
-</section>
+</section><section style="margin-top:.5em;margin-left:60px;font-weight:bold;font-size:x-large;">
+<p>
+    <a href="{% url 'app:playcount' %}">PlayCount</a>
+</p>
 </div>
 <main style="padding-top:4em;">
     {% for y in year_by %}
