@@ -22,7 +22,7 @@ def json_tree(data,indent=0):
         print(' :',data,end='')
     return
 
-for page in range(1,11):
+for page in range(1,51):
     print(f'page{page} searching')
     url = f'https://scoresaber.com/api/players?page={page}&countries=JP'
     res = requests.get(url).json()
