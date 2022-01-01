@@ -12,7 +12,7 @@ def index(request):
     if freq != 'day' and freq != 'month':
         freq = 'week'
     print(freq)
-    years = [str(i) for i in range(2020,2022)]
+    years = [str(i) for i in range(2020,2023)]
     years.reverse()
     months = [str(i).zfill(2) for i in range(1,13)]
     months.reverse()
